@@ -1,0 +1,38 @@
+Ex 1.9 
+======
+First one builds up to (inc (inc (inc (inc 5)))) & then reduces. So it is recursive.
+Second one goes to (+ 3 6) and then (+ 2 7) and then (+ 1 8) and finally (+ 0 9) which yields 9. So it is iterative.
+
+Ex 1.10
+=======
+(A 1 10)
+(A 0 (A 1 9)
+(* 2 (A 1 9))
+(* 2 (* 2 (A 1 8))
+....
+(* 2 (* 2 .... (A 1 1))
+(* 2 (* 2 .... (2))
+....
+= 2^10 = 1024
+
+(A 2 4)
+(A 1 (A 2 3))
+(A 1 (A 1 (A 2 2))
+(A 1 (A 1 (A 1 (A 2 1))))
+(A 1 (A 1 (A 1 2)))
+(A 1 (A 1 4))
+(A 1 16)
+= 2^16 = 65536
+
+(A 3 3)
+(A 2 (A 3 2))
+(A 2 (A 2 (A 3 1)))
+(A 2 (A 2 2))
+(A 2 (A 1 (A 2 1))
+(A 2 (A 1 2)))
+(A 2 4)
+= 2^16 = 65536
+
+(f n) calculates 2*n
+(g n) calculates 2^n (except when n=0)
+(h n) calculates 2^(2^(n-1)) (except when n=0)
