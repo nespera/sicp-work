@@ -1,3 +1,11 @@
+Ex 1.5
+======
+p calls itself, so if normal order evaluation is used, the interpreter will never return.
+
+Ex 1.6
+======
+This will not terminate as new-if needs to evaluate both branches.
+
 Ex 1.9 
 ======
 First one builds up to (inc (inc (inc (inc 5)))) & then reduces. So it is recursive.
