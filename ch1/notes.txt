@@ -44,3 +44,16 @@ Ex 1.10
 (f n) calculates 2*n
 (g n) calculates 2^n (except when n=0)
 (h n) calculates 2^(2^(n-1)) (except when n=0)
+
+Ex 1.15
+=======
+(sine 12.15)
+(p (sine 4.05))
+(p (p (sine 1.35)))
+(p (p (p (sine 0.45))))
+(p (p (p (p (sine 0.15)))))
+(p (p (p (p (p (sine 0.05))))))
+(p (p (p (p (p (0.05))))))
+
+So p is applied 5 times
+The function takes O(log n) steps and grows in space by the same order.
