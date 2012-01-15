@@ -57,3 +57,36 @@ Ex 1.15
 
 So p is applied 5 times
 The function takes O(log n) steps and grows in space by the same order.
+
+Ex 1.20
+=======
+Applicative-Order:
+gcd(206,40)
+gcd(40,6)
+gcd(6,4)
+gcd(4,2)
+gcd(2,0)
+2
+
+Normal-Order:
+gcd(206,40)
+[0 remainder applied:]
+gcd(40, (remainder 206 40))  
+[1 remainder applied by if:]
+gcd((remainder 206 40), (remainder 40 (remainder 206 40)))
+[2 remainders applied by if:]
+gcd((remainder 40 (remainder 206 40)), (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))
+[4 remainders applied by if:]
+...Got bored at this point...
+
+Ex 1.22
+=======
+Size vs Avg Time to Find a Prime
+10^6 : 16ms
+10^7 : 31ms
+10^8 : 109ms
+10^9 : 375ms
+10^10: 1200ms
+
+Increasing size by 100 increases time by approx 10
+So root(n) is a good approximation to time 
