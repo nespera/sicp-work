@@ -90,3 +90,7 @@ Size vs Avg Time to Find a Prime
 
 Increasing size by 100 increases time by approx 10
 So root(n) is a good approximation to time 
+
+Ex 1.29
+=======
+The simpson method seems to produce a very accurate answer with quite a small number of steps.
