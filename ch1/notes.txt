@@ -94,3 +94,15 @@ So root(n) is a good approximation to time
 Ex 1.29
 =======
 The simpson method seems to produce a very accurate answer with quite a small number of steps.
+
+Ex 1.34
+=======
+
+If we define f as
+
+(define (f g) (g 2))
+
+then (f f) will be interpreted as:
+(f 2)
+(2 2)
+-> Error! 2 is not applicable
