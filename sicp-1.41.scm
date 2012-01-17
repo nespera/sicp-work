@@ -3,5 +3,5 @@
 (define (inc x) (+ x 1))
 
 ;returns 21
-(((double (double double)) inc) 5)
+(display (((double (double double)) inc) 5))
 
