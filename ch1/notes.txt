@@ -1,6 +1,8 @@
 Ex 1.5
 ======
-p calls itself, so if normal order evaluation is used, the interpreter will never return.
+p calls itself in an infinite recursion. 
+If applicative order evaluation is used, the interpreter will first try to evaluate the two arguments. This will mean it loops forever.
+In the case of normal order evaluation, the call to test will be replaced with the if before p is evaluated. So the call will return.
 
 Ex 1.6
 ======
