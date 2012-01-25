@@ -1,0 +1,5 @@
+(define (square-tree tree)
+  (define (square x) (* x x))
+  (cond ((pair? tree) (cons (square-tree (car tree)) (square-tree (cdr tree))))
+	((null? tree) (list))
+        (else (square tree))))
