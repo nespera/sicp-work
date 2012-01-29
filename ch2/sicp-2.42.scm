@@ -19,7 +19,7 @@
 
 (define empty-board (list))
 
-(define (adjoin-position row col board) (cons (list row col) board))
+(define (adjoin-position row col board) (cons (list col row) board))
 
 (define (get-from-col k positions)
     (if (null? positions)
@@ -51,10 +51,10 @@
         (rest (remove-col k board)))
   (if (null? candidate)
     '()
-    (filter (lambda (x) (same-col x candidate))
-      (filter (lambda (x) (same-row x candidate))
-        (filter (lambda (x) (same-diag x candidate))
-                rest))))))
+    (filter (lambda (x) (or (same-col x candidate)
+                            (same-row x candidate)
+                            (same-diag x candidate)))
+             rest))))
 
 (define (safe? k board)
   (null? (unsafe k board)))
