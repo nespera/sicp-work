@@ -16,11 +16,15 @@
      (queen-cols board-size))
 
 ; my code....
+; I define a board to be a list of col, row lists
 
+; empty board is an empty list
 (define empty-board (list))
 
+; adjoin position just adds a list
 (define (adjoin-position row col board) (cons (list col row) board))
 
+; find the (first) position in column k
 (define (get-from-col k positions)
     (if (null? positions)
         '()
@@ -28,12 +32,14 @@
             (car positions)
             (get-from-col k (cdr positions)))))
 
+; board without the (first) position in column k
 (define (remove-col k positions)
    (let ((to-remove (get-from-col k positions)))
      (if (null? to-remove)
         positions
         (filter (lambda (x) (not (equal-pos to-remove x))) positions))))
 
+; are two positions equal?
 (define (equal-pos x y)
   (and (same-col x y) (same-row x y)))
 
@@ -43,9 +49,11 @@
 (define (same-row x y)
   (= (cadr x) (cadr y)))
 
+; are two positions on a diagonal?
 (define (same-diag x y)
   (= (abs (- (car x) (car y))) (abs (- (cadr x) (cadr y)))))
 
+; return other positions in conflict with the position in column k
 (define (unsafe k board)
   (let ((candidate (get-from-col k board))
         (rest (remove-col k board)))
@@ -56,6 +64,7 @@
                             (same-diag x candidate)))
              rest))))
 
+; are there any positions in conflict with the position in column k?
 (define (safe? k board)
   (null? (unsafe k board)))
 
