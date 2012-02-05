@@ -1,9 +1,3 @@
-(define (encode message tree)
-  (if (null? message)
-      '()
-      (append (encode-symbol (car message) tree)
-              (encode (cdr message) tree))))
-
 (define (encode-symbol symbol tree)
   (define (enc-sym-iter subtree bits)
     (if (leaf? subtree)
@@ -23,6 +17,12 @@
       (if (eq? sym (car l))
           #t
           (inlist? (cdr l) sym))))
+
+(define (encode message tree)
+  (if (null? message)
+      '()
+      (append (encode-symbol (car message) tree)
+              (encode (cdr message) tree))))
 
 (define (symbols tree)
   (if (leaf? tree)
