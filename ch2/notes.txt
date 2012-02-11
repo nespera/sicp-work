@@ -20,3 +20,18 @@ In each case the procedure yields the list (1 3 5 7 9 11)
 They each seem to have number of steps equal to O(n)
 They each call cons at each step.
 But the first procedure also calls append. Is this expensive?
+
+Ex 2.77
+=======
+
+Adding the extra mappings unwraps the complex number
+and passes the rectangular/polar representation to the
+correct procedure
+
+(magnitude z)
+(apply-generic 'magnitude z)
+(magnitude y) ;where y is z stripped of complex tag
+(apply-generic 'magnitude y)
+(magnitude w) ;where w is y stipped of rectangular tag
+(sqrt (+ (square 4) (square 3)))
+5
